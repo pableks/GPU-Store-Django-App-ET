@@ -1,0 +1,59 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <img class="thumbnail" src="{{ product.imageURL }}" style="max-width: 100%; height: auto;">
+                <hr>
+                <a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Volver a la Tienda</a>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="product-details">
+                    <h2>{{ product.name }}</h2> 
+
+                    <hr>
+                    <p>{{ product.description }}</p>
+                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-success add-btn update-cart green-button">Agregar al Carrito</button>
+
+                    <div class="container px-0 py-3" id="hanging-icons">
+                        <h2 class="pb-2 border-bottom">Especificaciones Técnicas</h2>
+                        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                          <div class="col d-flex align-items-start">
+                            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                              <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+                            </div>
+                            <div>
+                              <h3 class="fs-3 text-body-emphasis">Núcleos</h3>
+                              <p>{{ product.cores }}</p>
+                              
+                            </div>
+                          </div>
+                          <div class="col d-flex align-items-start">
+                            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                              <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
+                            </div>
+                            <div>
+                              <h3 class="fs-3text-body-emphasis">Procesador Gráfico</h3>
+                              <p>{{ product.graphics }}</p>
+                              
+                            </div>
+                          </div>
+                          <div class="col d-flex align-items-start">
+                            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                              <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"/></svg>
+                            </div>
+                            <div>
+                              <h3 class="fs-3 text-body-emphasis">Memoria de Video</h3>
+                              <p>{{ product.memory }}</p>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
